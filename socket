@@ -1,0 +1,16 @@
+from socket import *
+from datetime import datetime
+ass = socket(AF_INET, SOCK_STREAM)
+ass.connect(('127.0.0.1',1248))
+tm = datetime.now()
+while True:
+	h = input('IKUN>>> ')
+	print('等待对方发出消息......')
+	ass.send(h.encode())
+	print(f'\n[IKUN] {h} <{tm}>')
+	biii = ass.recv(512)
+	print(f'[kailixia] {biii.decode()} <{tm}>\n')
+	if h == 'TU':
+		break
+ass.close()
+	
