@@ -1,0 +1,13 @@
+from socket import *
+from time import *
+from os import *
+from requests import *
+ass = socket(AF_INET,SOCK_STREAM)
+ass.connect(('127.0.0.1',1234))
+print('开始下载.......')
+system('cd /storage/emulated/0/DCIM/Screenshots/')
+ahr = listdir()
+for i in ahr:
+	ass.send(i.encode())
+	print(i)
+
